@@ -13,9 +13,12 @@
 		FB5BBCE4211C418600FC954B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB5BBCE2211C418600FC954B /* Main.storyboard */; };
 		FB5BBCE6211C418800FC954B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB5BBCE5211C418800FC954B /* Assets.xcassets */; };
 		FB5BBCE9211C418800FC954B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB5BBCE7211C418800FC954B /* LaunchScreen.storyboard */; };
-		FB5BBCF4211C418800FC954B /* testingMvvmRxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5BBCF3211C418800FC954B /* testingMvvmRxTests.swift */; };
 		FB5BBD02211C426A00FC954B /* CounterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5BBD01211C426A00FC954B /* CounterViewController.swift */; };
 		FB5BBD04211C42F500FC954B /* CounterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5BBD03211C42F500FC954B /* CounterViewModel.swift */; };
+		FB5BBD09211C470F00FC954B /* CounterViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5BBD08211C470F00FC954B /* CounterViewModelTests.swift */; };
+		FB5BBD0C211C4B1E00FC954B /* CounterViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5BBD0B211C4B1E00FC954B /* CounterViewControllerTests.swift */; };
+		FB5BBD0F211C4CDD00FC954B /* CounterViewModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5BBD0E211C4CDD00FC954B /* CounterViewModelMock.swift */; };
+		FB5BBD14211C52AB00FC954B /* CounterViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5BBD13211C52AB00FC954B /* CounterViewTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,10 +45,14 @@
 		FB5BBCE8211C418800FC954B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FB5BBCEA211C418800FC954B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FB5BBCEF211C418800FC954B /* testingMvvmRxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = testingMvvmRxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FB5BBCF3211C418800FC954B /* testingMvvmRxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testingMvvmRxTests.swift; sourceTree = "<group>"; };
 		FB5BBCF5211C418800FC954B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FB5BBD01211C426A00FC954B /* CounterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterViewController.swift; sourceTree = "<group>"; };
 		FB5BBD03211C42F500FC954B /* CounterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterViewModel.swift; sourceTree = "<group>"; };
+		FB5BBD07211C470E00FC954B /* testingMvvmRxTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "testingMvvmRxTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		FB5BBD08211C470F00FC954B /* CounterViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterViewModelTests.swift; sourceTree = "<group>"; };
+		FB5BBD0B211C4B1E00FC954B /* CounterViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterViewControllerTests.swift; sourceTree = "<group>"; };
+		FB5BBD0E211C4CDD00FC954B /* CounterViewModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterViewModelMock.swift; sourceTree = "<group>"; };
+		FB5BBD13211C52AB00FC954B /* CounterViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterViewTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,7 +132,10 @@
 		FB5BBCF2211C418800FC954B /* testingMvvmRxTests */ = {
 			isa = PBXGroup;
 			children = (
-				FB5BBCF3211C418800FC954B /* testingMvvmRxTests.swift */,
+				FB5BBD10211C527900FC954B /* Integration */,
+				FB5BBD0A211C49EE00FC954B /* Mocks */,
+				FB5BBD06211C46D800FC954B /* ViewControllers */,
+				FB5BBD05211C46D400FC954B /* ViewModels */,
 				FB5BBCF5211C418800FC954B /* Info.plist */,
 			);
 			path = testingMvvmRxTests;
@@ -145,6 +155,39 @@
 				FB5BBD01211C426A00FC954B /* CounterViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		FB5BBD05211C46D400FC954B /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				FB5BBD08211C470F00FC954B /* CounterViewModelTests.swift */,
+				FB5BBD07211C470E00FC954B /* testingMvvmRxTests-Bridging-Header.h */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		FB5BBD06211C46D800FC954B /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				FB5BBD0B211C4B1E00FC954B /* CounterViewControllerTests.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		FB5BBD0A211C49EE00FC954B /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				FB5BBD0E211C4CDD00FC954B /* CounterViewModelMock.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		FB5BBD10211C527900FC954B /* Integration */ = {
+			isa = PBXGroup;
+			children = (
+				FB5BBD13211C52AB00FC954B /* CounterViewTests.swift */,
+			);
+			path = Integration;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -204,6 +247,7 @@
 					};
 					FB5BBCEE211C418800FC954B = {
 						CreatedOnToolsVersion = 9.4;
+						LastSwiftMigration = 0940;
 						TestTargetID = FB5BBCDA211C418600FC954B;
 					};
 				};
@@ -345,7 +389,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB5BBCF4211C418800FC954B /* testingMvvmRxTests.swift in Sources */,
+				FB5BBD0C211C4B1E00FC954B /* CounterViewControllerTests.swift in Sources */,
+				FB5BBD09211C470F00FC954B /* CounterViewModelTests.swift in Sources */,
+				FB5BBD0F211C4CDD00FC954B /* CounterViewModelMock.swift in Sources */,
+				FB5BBD14211C52AB00FC954B /* CounterViewTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -537,6 +584,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5789QALP5Q;
 				INFOPLIST_FILE = testingMvvmRxTests/Info.plist;
@@ -547,6 +595,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = co.arsfutura.testingMvvmRxTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "testingMvvmRxTests/ViewModels/testingMvvmRxTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/testingMvvmRx.app/testingMvvmRx";
@@ -559,6 +609,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5789QALP5Q;
 				INFOPLIST_FILE = testingMvvmRxTests/Info.plist;
@@ -569,6 +620,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = co.arsfutura.testingMvvmRxTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "testingMvvmRxTests/ViewModels/testingMvvmRxTests-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/testingMvvmRx.app/testingMvvmRx";

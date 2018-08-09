@@ -21,6 +21,7 @@ class CounterViewModel: CounterViewModelProtocol {
 
     init() {
         counterValue = increaseButtonTaps
+            .debug()
             .do(onNext: { [weak self] (_) in
                 self?.counter += 1
             })

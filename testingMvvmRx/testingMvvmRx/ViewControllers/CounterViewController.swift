@@ -12,7 +12,7 @@ import RxSwift
 import RxCocoa
 
 class CounterViewController: UIViewController {
-    private let counterLabel = UILabel()
+    let counterLabel = UILabel()
     private let increaseCounterButton = UIButton()
     private let disposeBag = DisposeBag()
 
