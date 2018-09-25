@@ -16,13 +16,11 @@ class CounterViewController: UIViewController {
     private let increaseCounterButton = UIButton()
     private let disposeBag = DisposeBag()
 
-    var viewModel: CounterViewModel!
+    let viewModel: CounterViewModel
 
-    init() {
+    init(viewModel: CounterViewModel) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
-
-        let increaseButtonTaps = increaseCounterButton.rx.tap.asObservable()
-        self.viewModel = CounterViewModel(increaseButtonTaps: increaseButtonTaps)
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -39,6 +37,8 @@ class CounterViewController: UIViewController {
     }
 
     private func setupObservables() {
+        viewModel.observeIncreaseButtonTaps(increaseButtonTaps: increaseCounterButton.rx.tap.asObservable())
+
         viewModel.counterValue
             .bind(to: counterLabel.rx.text)
             .disposed(by: disposeBag)

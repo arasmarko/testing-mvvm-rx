@@ -13,8 +13,9 @@ class CounterViewModel {
 
     var counterValue: Observable<String>!
 
-    init(increaseButtonTaps: Observable<Void>) {
+    func observeIncreaseButtonTaps(increaseButtonTaps: Observable<Void>) {
         counterValue = increaseButtonTaps
+            .debug()
             .do(onNext: { [weak self] (_) in
                 self?.counter += 1
             })

@@ -18,7 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
 
         guard let window = window else { return false }
-        window.rootViewController = CounterViewController()
+        let viewModel = CounterViewModel()
+        window.rootViewController = CounterViewController(viewModel: viewModel)
 
         return true
     }
