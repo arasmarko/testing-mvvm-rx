@@ -18,7 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
 
         guard let window = window else { return false }
-        let viewModel = CounterViewModel()
+        let numberValidator = NumberValidator()
+        let viewModel = CounterViewModel(numberValidator: numberValidator)
         window.rootViewController = CounterViewController(viewModel: viewModel)
 
         return true

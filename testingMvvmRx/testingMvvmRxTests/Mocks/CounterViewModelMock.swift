@@ -12,8 +12,28 @@ import RxSwift
 class CounterViewModelMock: CounterViewModelProtocol {
     var increaseButtonTaps = PublishSubject<Void>()
     var counterValue: Observable<String>!
+    var numberValidator: Validateable
 
-    init() {
-        counterValue = Observable.just("0")
+    init(numberValidator: Validateable) {
+        self.numberValidator = numberValidator
+
+        counterValue = Observable.just(0)
+            .filter({ numberValidator.validate($0) })
+            .map({ number in
+                return "\(number)"
+            })
+
+    }
+}
+
+class TrueValidator: Validateable {
+    func validate(_ value: Int) -> Bool {
+        return true
+    }
+}
+
+class FalseValidator: Validateable {
+    func validate(_ value: Int) -> Bool {
+        return false
     }
 }

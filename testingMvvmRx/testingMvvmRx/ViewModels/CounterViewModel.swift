@@ -11,6 +11,7 @@ import RxSwift
 protocol CounterViewModelProtocol {
     var increaseButtonTaps: PublishSubject<Void> { get }
     var counterValue: Observable<String>! { get }
+    var numberValidator: Validateable { get }
 }
 
 class CounterViewModel: CounterViewModelProtocol {
@@ -19,8 +20,16 @@ class CounterViewModel: CounterViewModelProtocol {
     var increaseButtonTaps = PublishSubject<Void>()
     var counterValue: Observable<String>!
 
-    init() {
+    var numberValidator: Validateable
+
+    init(numberValidator: Validateable) {
+        self.numberValidator = numberValidator
+
         counterValue = increaseButtonTaps
+            .filter({ [weak self] _ in
+                guard let `self` = self else { return false }
+                return numberValidator.validate(self.counter)
+            })
             .do(onNext: { [weak self] (_) in
                 self?.counter += 1
             })
@@ -31,3 +40,17 @@ class CounterViewModel: CounterViewModelProtocol {
             .startWith("\(counter)")
     }
 }
+
+class NumberValidator: Validateable {
+    func validate(_ value: Int) -> Bool {
+        // complex logic
+        /// ...
+        /// ...
+        return value < 100
+    }
+}
+
+protocol Validateable {
+    func validate(_ value: Int) -> Bool
+}
+

@@ -20,7 +20,7 @@ class CounterViewTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
-        viewModel = CounterViewModel()
+        viewModel = CounterViewModel(numberValidator: TrueValidator())
         sut = CounterViewController(viewModel: viewModel)
         scheduler = TestScheduler(initialClock: 0)
         disposeBag = DisposeBag()
