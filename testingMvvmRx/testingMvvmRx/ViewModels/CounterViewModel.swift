@@ -8,20 +8,13 @@
 
 import RxSwift
 
-protocol CounterViewModelProtocol {
-    var increaseButtonTaps: PublishSubject<Void> { get }
-    var counterValue: Observable<String>! { get }
-}
-
-class CounterViewModel: CounterViewModelProtocol {
+class CounterViewModel {
     private var counter: Int = 0
 
-    var increaseButtonTaps = PublishSubject<Void>()
     var counterValue: Observable<String>!
 
-    init() {
+    init(increaseButtonTaps: Observable<Void>) {
         counterValue = increaseButtonTaps
-            .debug()
             .do(onNext: { [weak self] (_) in
                 self?.counter += 1
             })
