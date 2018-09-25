@@ -16,12 +16,12 @@ class CounterViewControllerTests: XCTestCase {
     var scheduler: TestScheduler!
     var disposeBag: DisposeBag!
     var sut: CounterViewController!
-    var viewModelMock: CounterViewModel!
+    var viewModelMock: CounterViewModelProtocol!
 
     override func setUp() {
         super.setUp()
-        viewModelMock = CounterViewModel(increaseButtonTaps: Observable.empty())
-        sut = CounterViewController()
+        viewModelMock = CounterViewModelMock()
+        sut = CounterViewController(viewModel: viewModelMock)
         scheduler = TestScheduler(initialClock: 0)
         disposeBag = DisposeBag()
     }
